@@ -48,13 +48,15 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 		
 		//////////////////tarea 5//////////////////////////
 		
+		//por atributos
 		String resp1=matA.matricularA("A", "Colegio Ibarra", "Ibarra", 2000, "Juan", 16);
 		System.out.println(resp1);
 		
-		
+		//por constructor
 		String resp2=matB.matricularB("B", "Colegio Ibarra", "Ibarra", 2000, "Juan", 16);
 		System.out.println(resp2);
 		
+		//por metodos set
 		String resp3=matC.matricularC("C", "Colegio Ibarra", "Ibarra", 2000, "Juan", 16);
 		System.out.println(resp3);
 	}
