@@ -10,27 +10,27 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 	@Override
 	public void insertar(Estudiante e) {
 		//Aqui se realiza la insercion
-		System.out.println("se ha insertado el estudiante");
+		System.out.println("se ha insertado el estudiante "+e.toString());
 	}
 
 	@Override
 	public Estudiante buscar(String apellido) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Se busca estudiantes por apellido");
+		System.out.println("Se busca estudiantes por apellido: "+apellido);
 		return null;
 	}
 
 	@Override
 	public void actualizar(Estudiante e) {
 		// TODO Auto-generated method stub
-		System.out.println("se ha actualizado");
+		System.out.println("se ha actualizado "+e.toString());
 	}
 
 	@Override
 	public void eliminar(String cedula) {
 		// TODO Auto-generated method stub
-		System.out.println("se elimina al estudiante por cedula");
+		System.out.println("se elimina al estudiante por cedula "+cedula);
 	}
 
 	

@@ -26,6 +26,12 @@ public class Estudiante {
 		this.cedula = cedula;
 	}
 	
+	//to string
+	@Override
+	public String toString() {
+		return "Estudiante [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+	
 	
 	
 }
