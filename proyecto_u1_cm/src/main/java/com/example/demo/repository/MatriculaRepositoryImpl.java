@@ -4,36 +4,36 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Estudiante;
 import com.example.demo.model.Materia;
+import com.example.demo.model.Matricula;
 
 @Repository
-public class MatriculaRepositoryImpl implements IMateriaRepository{
+public class MatriculaRepositoryImpl implements IMatriculaRepository{
 
 	@Override
-	public void insertar(Materia e) {
+	public void insertar(Matricula e) {
 		// TODO Auto-generated method stub
-		System.out.println("inserta la materia");
+		System.out.println("Se ha insetrtado la matricula");
 	}
 
 	@Override
-	public Materia buscar(String nombre) {
+	public Matricula buscar(String numero) {
 		// TODO Auto-generated method stub
-		System.out.println("se esta buscando por el nombre de la materia");
+		System.out.println("se busca la matricula por numero "+numero);
 		return null;
 	}
 
 	@Override
-	public void actualizar(Materia e) {
+	public void actualizar(Matricula e) {
 		// TODO Auto-generated method stub
-		System.out.println("se actualiza la materia");
+		System.out.println("actualizando matricula");
 	}
 
 	@Override
-	public void eliminar(String nombre) {
+	public void eliminar(String numero) {
 		// TODO Auto-generated method stub
-		System.out.println("Se elimina la materia");
+		System.out.println("eliminando matricula por numero "+numero);
 	}
 
 	
-
 	
 }
