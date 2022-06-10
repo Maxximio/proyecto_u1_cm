@@ -25,4 +25,14 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository{
 		return cta;
 	}
 
+	@Override
+	public void insertar(CuentaBancaria c) {
+		System.out.println("se inserta el numero de cuenta "+ c);
+	}
+
+	@Override
+	public void eliminar(String numero) {
+		System.out.println("eliminando cuenta de numero: "+numero);
+	}
+
 }

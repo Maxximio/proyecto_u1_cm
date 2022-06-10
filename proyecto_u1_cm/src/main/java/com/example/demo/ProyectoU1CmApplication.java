@@ -11,7 +11,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.banco.modelo.CuentaBancaria;
+import com.example.demo.banco.repository.IRetiroRepository;
 import com.example.demo.banco.service.IDepositoService;
+import com.example.demo.banco.service.IRetiroService;
 import com.example.demo.banco.service.ITransferenciaService;
 import com.example.demo.model.Estudiante;
 import com.example.demo.model.Materia;
@@ -37,6 +39,9 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 	
 	@Autowired
 	private IDepositoService depositoService;
+	
+	@Autowired
+	private IRetiroService retiService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CmApplication.class, args);
@@ -90,7 +95,8 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 		iTransferenciaService.realizarTransferencia("123", "321", new BigDecimal(20));
 		System.out.println("///////////////////////////deposito///////////////////");
 		depositoService.realizarDeposito("123", new BigDecimal(10));
-		
-		
+
+		System.out.println("///////////////////////////retiro///////////////////");
+		retiService.realizarRetiro("123", new BigDecimal(50));
 	}
 }

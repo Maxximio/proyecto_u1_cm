@@ -43,4 +43,28 @@ public class TransferenciaServiceImpl implements ITransferenciaService{
 		transRepo.insertar(trans);
 	}
 
+	@Override
+	public void insertarService(Transferencia t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Transferencia buscarService(String numeroDestino) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void actualizarService(Transferencia t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarService(String numeroDestino) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
