@@ -1,6 +1,8 @@
 package com.example.demo.banco.service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import com.example.demo.banco.modelo.Transferencia;
 
@@ -13,4 +15,6 @@ public interface ITransferenciaService {
 	public Transferencia buscarService (String numeroDestino);
 	public void actualizarService (Transferencia t);
 	public void eliminarService (String numeroDestino);
+	
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin);
 }
