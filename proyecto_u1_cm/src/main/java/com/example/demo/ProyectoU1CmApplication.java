@@ -21,6 +21,7 @@ import com.example.demo.model.Matricula;
 import com.example.demo.service.IEstudianteService;
 import com.example.demo.service.IMateriaService;
 import com.example.demo.service.IMatriculaService;
+import com.tarea_8.cm.service.IGestionService;
 
 @SpringBootApplication
 public class ProyectoU1CmApplication implements CommandLineRunner{
@@ -43,12 +44,26 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 	@Autowired
 	private IRetiroService retiService;
 	
+	@Autowired
+	private IGestionService iGestionService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CmApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		/////////tarea8
+		
+		iGestionService.aniadirP("Queso", new BigDecimal(10), 100);
+		iGestionService.aniadirP("Leche", new BigDecimal(2), 200);
+		iGestionService.aniadirP("Mantequilla", new BigDecimal(2), 40);
+		iGestionService.aniadirP("Avena", new BigDecimal(2), 20);
+		iGestionService.aniadirP("Carne res101", new BigDecimal(5), 20);
+		
+		
+		iGestionService.mostrar(LocalDateTime.of(2022, 06, 14, 3, 20));
 		
 //		System.out.println("/////////////////Estudiante///////////////////");
 //		Estudiante e=new Estudiante();
@@ -91,12 +106,20 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 //		cta1.setNumero("123");
 //		cta1.setSaldo(new BigDecimal(200));
 		
-		System.out.println("///////////////////////////transferencia///////////////////");
-		iTransferenciaService.realizarTransferencia("123", "321", new BigDecimal(20));
-		System.out.println("///////////////////////////deposito///////////////////");
-		depositoService.realizarDeposito("123", new BigDecimal(10));
-
-		System.out.println("///////////////////////////retiro///////////////////");
-		retiService.realizarRetiro("123", new BigDecimal(50));
+//		System.out.println("///////////////////////////transferencia///////////////////");
+//		iTransferenciaService.realizarTransferencia("123", "321", new BigDecimal(20));
+//		System.out.println("///////////////////////////deposito///////////////////");
+//		depositoService.realizarDeposito("123", new BigDecimal(10));
+//
+//		System.out.println("///////////////////////////retiro///////////////////");
+//		retiService.realizarRetiro("123", new BigDecimal(50));
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
