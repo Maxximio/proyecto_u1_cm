@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.banco.modelo.CuentaBancaria;
 import com.example.demo.banco.repository.IRetiroRepository;
 import com.example.demo.banco.service.IDepositoService;
+import com.example.demo.banco.service.IFachadaCuentaBancaria;
 import com.example.demo.banco.service.IRetiroService;
 import com.example.demo.banco.service.ITransferenciaService;
 import com.example.demo.model.Estudiante;
@@ -21,7 +22,6 @@ import com.example.demo.model.Matricula;
 import com.example.demo.service.IEstudianteService;
 import com.example.demo.service.IMateriaService;
 import com.example.demo.service.IMatriculaService;
-import com.tarea_8.cm.service.IGestionService;
 
 @SpringBootApplication
 public class ProyectoU1CmApplication implements CommandLineRunner{
@@ -35,17 +35,17 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 //	@Autowired
 //	private IMatriculaService matriService;
 	
-	@Autowired
-	private ITransferenciaService iTransferenciaService;
+//	@Autowired
+//	private ITransferenciaService iTransferenciaService;
+//	
+//	@Autowired
+//	private IDepositoService depositoService;
+//	
+//	@Autowired
+//	private IRetiroService retiService;
 	
 	@Autowired
-	private IDepositoService depositoService;
-	
-	@Autowired
-	private IRetiroService retiService;
-	
-	@Autowired
-	private IGestionService iGestionService;
+	private IFachadaCuentaBancaria bancaria;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CmApplication.class, args);
@@ -54,17 +54,23 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
+		BigDecimal interes=this.bancaria.calcularInteres("123");
+		
+		System.out.println("/////////////////el interes es de: "+interes+"/////////////////");
+		
+		
+		
 		/////////tarea8
 		
-		iGestionService.aniadirP("Queso", new BigDecimal(10), 100);
-		iGestionService.aniadirP("Leche", new BigDecimal(2), 200);
-		iGestionService.aniadirP("Mantequilla", new BigDecimal(2), 40);
-		iGestionService.aniadirP("Avena", new BigDecimal(2), 20);
-		iGestionService.aniadirP("Carne res101", new BigDecimal(5), 20);
-		
-		
-		iGestionService.mostrar(LocalDateTime.of(2022, 06, 14, 3, 20));
-		
+//		iGestionService.aniadirP("Queso", new BigDecimal(10), 100);
+//		iGestionService.aniadirP("Leche", new BigDecimal(2), 200);
+//		iGestionService.aniadirP("Mantequilla", new BigDecimal(2), 40);
+//		iGestionService.aniadirP("Avena", new BigDecimal(2), 20);
+//		iGestionService.aniadirP("Carne res101", new BigDecimal(5), 20);
+//		
+//		
+//		iGestionService.mostrar(LocalDateTime.of(2022, 06, 14, 3, 20));
+//		
 //		System.out.println("/////////////////Estudiante///////////////////");
 //		Estudiante e=new Estudiante();
 //		
@@ -113,12 +119,6 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 //
 //		System.out.println("///////////////////////////retiro///////////////////");
 //		retiService.realizarRetiro("123", new BigDecimal(50));
-		
-		
-		
-		
-		
-		
 		
 		
 	}

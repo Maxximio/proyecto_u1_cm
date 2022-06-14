@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.banco.modelo.CuentaBancaria;
@@ -19,6 +20,7 @@ public class RetiroServiceImpl implements IRetiroService{
 	private IRetiroRepository retiroRepository;
 	
 	@Autowired
+	@Qualifier("ahorros")
 	private ICuentaBancariaService bancariaService;
 
 	@Override
