@@ -58,8 +58,6 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 		
 		System.out.println("/////////////////el interes es de: "+interes+"/////////////////");
 		
-		
-		
 		/////////tarea8
 		
 //		iGestionService.aniadirP("Queso", new BigDecimal(10), 100);
