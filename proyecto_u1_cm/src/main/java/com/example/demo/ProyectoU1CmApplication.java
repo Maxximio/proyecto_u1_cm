@@ -79,11 +79,6 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 		this.matriService.insertarService(mat);
 		
 		
-		
-		
-		
-		
-		
 		////////taller 10
 //		BigDecimal interes=this.bancaria.calcularInteres("123");
 //		
