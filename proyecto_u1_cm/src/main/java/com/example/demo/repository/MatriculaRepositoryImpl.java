@@ -12,7 +12,7 @@ public class MatriculaRepositoryImpl implements IMatriculaRepository{
 	@Override
 	public void insertar(Matricula e) {
 		// TODO Auto-generated method stub
-		System.out.println("Se ha insetrtado la matricula");
+		System.out.println("Se ha insetrtado la matricula "+e);
 	}
 
 	@Override

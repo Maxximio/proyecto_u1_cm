@@ -19,6 +19,8 @@ import com.example.demo.banco.service.ITransferenciaService;
 import com.example.demo.model.Estudiante;
 import com.example.demo.model.Materia;
 import com.example.demo.model.Matricula;
+import com.example.demo.model.ProfesorGeneral;
+import com.example.demo.model.ProfesorMateria;
 import com.example.demo.service.IEstudianteService;
 import com.example.demo.service.IMateriaService;
 import com.example.demo.service.IMatriculaService;
@@ -26,26 +28,20 @@ import com.example.demo.service.IMatriculaService;
 @SpringBootApplication
 public class ProyectoU1CmApplication implements CommandLineRunner{
 
-//	@Autowired
-//	private IEstudianteService estudService;
-//	
-//	@Autowired
-//	private IMateriaService mateService;
-//	
-//	@Autowired
-//	private IMatriculaService matriService;
-	
-//	@Autowired
-//	private ITransferenciaService iTransferenciaService;
-//	
-//	@Autowired
-//	private IDepositoService depositoService;
-//	
-//	@Autowired
-//	private IRetiroService retiService;
+	@Autowired
+	private IMatriculaService matriService;
 	
 	@Autowired
-	private IFachadaCuentaBancaria bancaria;
+	private ProfesorGeneral general;
+	
+	@Autowired
+	private ProfesorGeneral general1;
+	
+	@Autowired
+	private ProfesorMateria materia;
+	
+	@Autowired
+	private ProfesorMateria materia1;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CmApplication.class, args);
@@ -54,10 +50,45 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		BigDecimal interes=this.bancaria.calcularInteres("123");
+		System.out.println("EJEMPLO SINGLETON");
 		
-		System.out.println("/////////////////el interes es de: "+interes+"/////////////////");
+		this.general.setNombre("Carlos ");
+		this.general.setApellido("Montalvo");
 		
+		System.out.println(this.general);
+		System.out.println("-------------------------------------------------------");
+		System.out.println(this.general1);
+		this.general1.setNombre("Ricardo");
+		System.out.println("-------------------------------------------------------");
+		System.out.println(this.general);
+		
+		
+		System.out.println("EJEMPLO PROTOTYPE");
+		
+		this.materia.setNombre("Mauricio");
+		this.materia.setApellido("Teran");
+		System.out.println(this.materia);
+		System.out.println("-------------------------------------------------------");
+		System.out.println(this.materia1);
+		
+		Matricula mat=new Matricula();
+		mat.setEstudiante(new Estudiante());
+		mat.setMateria(new ArrayList<Materia>());
+		mat.setNumero("132");
+		
+		this.matriService.insertarService(mat);
+		
+		
+		
+		
+		
+		
+		
+		////////taller 10
+//		BigDecimal interes=this.bancaria.calcularInteres("123");
+//		
+//		System.out.println("/////////////////el interes es de: "+interes+"/////////////////");
+//		
 		/////////tarea8
 		
 //		iGestionService.aniadirP("Queso", new BigDecimal(10), 100);
