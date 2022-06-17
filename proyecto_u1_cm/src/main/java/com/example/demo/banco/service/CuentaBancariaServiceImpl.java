@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.banco.modelo.CuentaBancaria;
+import com.example.demo.banco.modelo.Retiro;
 import com.example.demo.banco.repository.ICuentaBancariaRepository;
 
 @Service
@@ -13,6 +14,9 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService{
 
 	@Autowired
 	private ICuentaBancariaRepository cuentaRepo;
+	
+	@Autowired
+	private CuentaBancaria cuentaBancaria;
 	
 	@Override
 	public void actualizarService(CuentaBancaria c) {
@@ -26,6 +30,11 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService{
 
 	@Override
 	public void insertarService(CuentaBancaria c) {
+		
+		System.out.println("La unica cuenta Bancaria es (SINGLLETON)");
+		
+		System.out.println(this.cuentaBancaria);
+
 		this.cuentaRepo.insertar(c);
 	}
 

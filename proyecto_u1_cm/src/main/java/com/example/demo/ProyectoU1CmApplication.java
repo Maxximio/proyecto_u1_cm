@@ -11,7 +11,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.banco.modelo.CuentaBancaria;
+import com.example.demo.banco.modelo.Retiro;
 import com.example.demo.banco.repository.IRetiroRepository;
+import com.example.demo.banco.service.ICuentaBancariaService;
 import com.example.demo.banco.service.IDepositoService;
 import com.example.demo.banco.service.IFachadaCuentaBancaria;
 import com.example.demo.banco.service.IRetiroService;
@@ -29,19 +31,10 @@ import com.example.demo.service.IMatriculaService;
 public class ProyectoU1CmApplication implements CommandLineRunner{
 
 	@Autowired
-	private IMatriculaService matriService;
+	ICuentaBancariaService cuentaBancariaService;
 	
 	@Autowired
-	private ProfesorGeneral general;
-	
-	@Autowired
-	private ProfesorGeneral general1;
-	
-	@Autowired
-	private ProfesorMateria materia;
-	
-	@Autowired
-	private ProfesorMateria materia1;
+	IRetiroService retiroService; 
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CmApplication.class, args);
@@ -50,33 +43,51 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		System.out.println("EJEMPLO SINGLETON");
+		CuentaBancaria cb=new CuentaBancaria();
+		cb.setNumero("123454");
+		cb.setSaldo(new BigDecimal(200));
+		cb.setTipo("ahorros");
 		
-		this.general.setNombre("Carlos ");
-		this.general.setApellido("Montalvo");
-		
-		System.out.println(this.general);
-		System.out.println("-------------------------------------------------------");
-		System.out.println(this.general1);
-		this.general1.setNombre("Ricardo");
-		System.out.println("-------------------------------------------------------");
-		System.out.println(this.general);
+		this.cuentaBancariaService.insertarService(cb);
 		
 		
-		System.out.println("EJEMPLO PROTOTYPE");
 		
-		this.materia.setNombre("Mauricio");
-		this.materia.setApellido("Teran");
-		System.out.println(this.materia);
-		System.out.println("-------------------------------------------------------");
-		System.out.println(this.materia1);
+		Retiro ret=new Retiro();
+		ret.setNumeroCuentaOrigen("123454");
+		ret.setFechaRetiro(LocalDateTime.now().minusDays(200));
+		ret.setNumRetiro("432");
+		ret.setValorRetiro(new BigDecimal(30));
 		
-		Matricula mat=new Matricula();
-		mat.setEstudiante(new Estudiante());
-		mat.setMateria(new ArrayList<Materia>());
-		mat.setNumero("132");
+		this.retiroService.insertarService(ret);
 		
-		this.matriService.insertarService(mat);
+		////taller 11
+//		System.out.println("EJEMPLO SINGLETON");
+//		
+//		this.general.setNombre("Carlos ");
+//		this.general.setApellido("Montalvo");
+//		
+//		System.out.println(this.general);
+//		System.out.println("-------------------------------------------------------");
+//		System.out.println(this.general1);
+//		this.general1.setNombre("Ricardo");
+//		System.out.println("-------------------------------------------------------");
+//		System.out.println(this.general);
+//		
+//		
+//		System.out.println("EJEMPLO PROTOTYPE");
+//		
+//		this.materia.setNombre("Mauricio");
+//		this.materia.setApellido("Teran");
+//		System.out.println(this.materia);
+//		System.out.println("-------------------------------------------------------");
+//		System.out.println(this.materia1);
+//		
+//		Matricula mat=new Matricula();
+//		mat.setEstudiante(new Estudiante());
+//		mat.setMateria(new ArrayList<Materia>());
+//		mat.setNumero("132");
+//		
+//		this.matriService.insertarService(mat);
 		
 		
 		////////taller 10
