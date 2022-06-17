@@ -3,6 +3,7 @@ package com.example.demo.banco.service;
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.banco.modelo.CuentaBancaria;
@@ -10,6 +11,7 @@ import com.example.demo.banco.modelo.Retiro;
 import com.example.demo.banco.repository.ICuentaBancariaRepository;
 
 @Service
+@Qualifier("ahorro")
 public class CuentaBancariaServiceImpl implements ICuentaBancariaService{
 
 	@Autowired
