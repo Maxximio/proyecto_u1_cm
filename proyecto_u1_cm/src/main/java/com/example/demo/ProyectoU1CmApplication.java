@@ -29,12 +29,22 @@ import com.example.demo.service.IMatriculaService;
 
 @SpringBootApplication
 public class ProyectoU1CmApplication implements CommandLineRunner{
-
-	@Autowired
-	ICuentaBancariaService cuentaBancariaService;
+	
 	
 	@Autowired
-	IRetiroService retiroService; 
+	private IMatriculaService matriService;
+
+	@Autowired
+	private ProfesorGeneral general;
+
+	@Autowired
+	private ProfesorGeneral general1;
+
+	@Autowired
+	private ProfesorMateria materia;
+
+	@Autowired
+	private ProfesorMateria materia1;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CmApplication.class, args);
@@ -43,28 +53,30 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		CuentaBancaria cb=new CuentaBancaria();
-		cb.setNumero("123454");
-		cb.setSaldo(new BigDecimal(200));
-		cb.setTipo("ahorros");
+		//tarea 10
 		
-		this.cuentaBancariaService.insertarService(cb);
-		
-		
-		
-		Retiro ret=new Retiro();
-		ret.setNumeroCuentaOrigen("123454");
-		ret.setFechaRetiro(LocalDateTime.now().minusDays(200));
-		ret.setNumRetiro("432");
-		ret.setValorRetiro(new BigDecimal(30));
-		
-		this.retiroService.insertarService(ret);
+//		CuentaBancaria cb=new CuentaBancaria();
+//		cb.setNumero("123454");
+//		cb.setSaldo(new BigDecimal(200));
+//		cb.setTipo("ahorros");
+//		
+//		this.cuentaBancariaService.insertarService(cb);
+//		
+//		
+//		
+//		Retiro ret=new Retiro();
+//		ret.setNumeroCuentaOrigen("123454");
+//		ret.setFechaRetiro(LocalDateTime.now().minusDays(200));
+//		ret.setNumRetiro("432");
+//		ret.setValorRetiro(new BigDecimal(30));
+//		
+//		this.retiroService.insertarService(ret);
 		
 		////taller 11
 //		System.out.println("EJEMPLO SINGLETON");
 //		
-//		this.general.setNombre("Carlos ");
-//		this.general.setApellido("Montalvo");
+		this.general.setNombre("Carlos ");
+		this.general.setApellido("Montalvo");
 //		
 //		System.out.println(this.general);
 //		System.out.println("-------------------------------------------------------");
@@ -81,13 +93,13 @@ public class ProyectoU1CmApplication implements CommandLineRunner{
 //		System.out.println(this.materia);
 //		System.out.println("-------------------------------------------------------");
 //		System.out.println(this.materia1);
-//		
-//		Matricula mat=new Matricula();
-//		mat.setEstudiante(new Estudiante());
-//		mat.setMateria(new ArrayList<Materia>());
-//		mat.setNumero("132");
-//		
-//		this.matriService.insertarService(mat);
+		
+		Matricula mat=new Matricula();
+		mat.setEstudiante(new Estudiante());
+		mat.setMateria(new ArrayList<Materia>());
+		mat.setNumero("132");
+		
+		this.matriService.insertarService(mat);
 		
 		
 		////////taller 10
