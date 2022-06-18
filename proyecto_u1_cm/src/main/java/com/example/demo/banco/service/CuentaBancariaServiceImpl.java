@@ -11,14 +11,10 @@ import com.example.demo.banco.modelo.Retiro;
 import com.example.demo.banco.repository.ICuentaBancariaRepository;
 
 @Service
-@Qualifier("ahorro")
 public class CuentaBancariaServiceImpl implements ICuentaBancariaService{
 
 	@Autowired
 	private ICuentaBancariaRepository cuentaRepo;
-	
-	@Autowired
-	private CuentaBancaria cuentaBancaria;
 	
 	@Override
 	public void actualizarService(CuentaBancaria c) {
@@ -32,10 +28,6 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService{
 
 	@Override
 	public void insertarService(CuentaBancaria c) {
-		
-		System.out.println("La unica cuenta Bancaria es (SINGLLETON)");
-		
-		System.out.println(this.cuentaBancaria);
 
 		this.cuentaRepo.insertar(c);
 	}

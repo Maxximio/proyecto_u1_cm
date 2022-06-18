@@ -20,9 +20,6 @@ public class RetiroServiceImpl implements IRetiroService{
 	private IRetiroRepository retiroRepository;
 	
 	@Autowired
-	private Retiro retiro;
-	
-	@Autowired
 	@Qualifier("ahorros")
 	private ICuentaBancariaService bancariaService;
 
@@ -49,10 +46,6 @@ public class RetiroServiceImpl implements IRetiroService{
 
 	@Override
 	public void insertarService(Retiro d) {
-		
-		System.out.println("Pueden existir varios retiros (PROTOTYPE)");
-		
-		System.out.println(this.retiro);
 		
 		this.retiroRepository.insertar(d);
 	}

@@ -10,6 +10,7 @@ import com.example.demo.banco.modelo.CuentaBancaria;
 import com.example.demo.banco.repository.ICuentaBancariaRepository;
 
 @Service
+@Qualifier("ahorros")
 public class CuentaBancariaAhorrosServiceImpl implements ICuentaBancariaService{
 
 	@Autowired
